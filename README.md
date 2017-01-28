@@ -119,6 +119,19 @@ and then use as follow in `app/config/config.yml`:
 AdminLTE skins are: skin-blue (default for this bundle), skin-blue-light, skin-yellow, skin-yellow-light, skin-green, skin-green-light, skin-purple, skin-purple-light, skin-red, skin-red-light, skin-black and skin-black-light.
 If you want to know more then go ahead and check docs for AdminLTE [here][1].
 
+### Install Assets and Dump Assetic
+
+Run the following two commands:
+    
+       php bin/console assets:install
+       php bin/console assetic:dump
+       
+### Replace the contents of index.html.twig
+
+Replace the contents of app/Resources/views/default/index.html.twig with:
+
+    {% extends 'SbSAdminLTEBundle:Layout:base.html.twig' %}
+
 There are a few values you could change for sure without need to touch anything at bundle, just take a look under `Resources/views`.
 
 That's all. Enjoy.
