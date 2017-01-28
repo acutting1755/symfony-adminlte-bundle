@@ -76,6 +76,20 @@ public function registerBundles()
 }
 ```
 
+Add the following lines at app/config/config.yml:
+
+    assetic:
+        debug: "%kernel.debug%"
+        use_controller: "%kernel.debug%"
+        bundles: []
+        filters:
+           cssrewrite: ~
+        
+Add the following lines at app/config/config_dev.yml:
+
+    assetic:
+        use_controller: false
+    
 ### Changing default values template
 
 If you want to change any default value as for example `skin` all you need to do is define the same at `app/config/config.yml` under `[twig]` section.
