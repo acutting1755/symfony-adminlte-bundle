@@ -76,14 +76,27 @@ public function registerBundles()
 }
 ```
 
-Add the following lines at `app/config/config.yml`:
+Add the following lines to `app/config/config.yml`:
 
-    # Assetic Configuration
     assetic:
         debug: "%kernel.debug%"
         use_controller: "%kernel.debug%"
+        bundles: ["SbSAdminLTEBundle"]
         filters:
             cssrewrite: ~
+        assets:
+            fontawesome:
+                inputs: '%kernel.root_dir%/../web/components/font-awesome/fonts/FontAwesome.otf'
+                output: 'fonts/FontAwesome.otf'
+            fontawesome-webfont-eot:
+                inputs: '%kernel.root_dir%/../web/components/font-awesome/fonts/fontawesome-webfont.eot'
+                output: 'fonts/fontawesome-webfont.eot'
+            fontawesome-webfont-svg:
+                inputs: '%kernel.root_dir%/../web/components/font-awesome/fonts/fontawesome-webfont.svg'
+                output: 'fonts/fontawesome-webfont.svg'
+            fontawesome-webfont-ttf:
+                inputs: '%kernel.root_dir%/../web/components/font-awesome/fonts/fontawesome-webfont.ttf'
+                output: 'fonts/fontawesome-webfont.ttf'
 
 And following lines at `app/config/config_dev.yml`:
 
