@@ -6,8 +6,7 @@ use SbS\AdminLTEBundle\Event\UserEvent;
 use SbS\AdminLTEBundle\Model\Demo\UserModel;
 
 /**
- * Class UserEventListener
- * @package SbS\AdminLTEBundle\EventListener
+ * Class UserEventListener.
  */
 class UserEventListener
 {
@@ -16,7 +15,7 @@ class UserEventListener
      */
     public function onShowUser(UserEvent $event)
     {
-        $user = new UserModel("demo_user");
+        $user = new UserModel('demo_user');
         $user->setMemberSince(new \DateTime())->setUsername('Demo User');
 
         $event->setUser($user);

@@ -1,9 +1,10 @@
 <?php
+
 namespace SbS\AdminLTEBundle\Composer;
 
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\PhpExecutableFinder;
 use Composer\Script\Event;
+use Symfony\Component\Process\PhpExecutableFinder;
+use Symfony\Component\Process\Process;
 
 class ScriptHandler
 {
@@ -13,17 +14,18 @@ class ScriptHandler
      * to forthcoming listeners.
      */
     private static $options = [
-        'symfony-app-dir' => 'app'
+        'symfony-app-dir' => 'app',
     ];
 
     /**
      * @param Event $event
+     *
      * @return bool
      */
     public static function buildAssets(Event $event)
     {
-        $options    = self::getOptions($event);
-        $consoleDir = self::getConsoleDir($event, "installing bundle assets");
+        $options = self::getOptions($event);
+        $consoleDir = self::getConsoleDir($event, 'installing bundle assets');
 
         if (null === $consoleDir) {
             return false;
@@ -34,11 +36,12 @@ class ScriptHandler
 
     /**
      * @param Event $event
+     *
      * @return array
      */
     protected static function getOptions(Event $event)
     {
-        $options                    = array_merge(static::$options, $event->getComposer()->getPackage()->getExtra());
+        $options = array_merge(static::$options, $event->getComposer()->getPackage()->getExtra());
         $options['process-timeout'] = $event->getComposer()->getConfig()->get('process-timeout');
 
         return $options;
@@ -47,7 +50,7 @@ class ScriptHandler
     /**
      * Returns a relative path to the directory that contains the `console` command.
      *
-     * @param Event $event The command event
+     * @param Event  $event      The command event
      * @param string $actionName The name of the action
      *
      * @return string|null The path to the console directory, null if not found.
@@ -60,12 +63,14 @@ class ScriptHandler
             if (!static::hasDirectory($event, 'symfony-bin-dir', $options['symfony-bin-dir'], $actionName)) {
                 return false;
             }
+
             return $options['symfony-bin-dir'];
         }
 
         if (!static::hasDirectory($event, 'symfony-app-dir', $options['symfony-app-dir'], 'execute command')) {
             return false;
         }
+
         return $options['symfony-app-dir'];
     }
 
@@ -86,21 +91,23 @@ class ScriptHandler
         if (!is_dir($path)) {
             $event->getIO()->write(sprintf('The %s (%s) specified in composer.json was not found in %s, can not %s.',
                 $configName, $path, getcwd(), $actionName));
+
             return false;
         }
+
         return true;
     }
 
     protected static function executeCommand(Event $event, $consoleDir, $cmd, $timeout = 300)
     {
-        $php     = escapeshellarg(static::getPhp(false));
+        $php = escapeshellarg(static::getPhp(false));
         $phpArgs = implode(' ', array_map('escapeshellarg', static::getPhpArguments()));
-        $console = escapeshellarg($consoleDir . '/console');
+        $console = escapeshellarg($consoleDir.'/console');
         if ($event->getIO()->isDecorated()) {
             $console .= ' --ansi';
         }
 
-        $process = new Process($php . ($phpArgs ? ' ' . $phpArgs : '') . ' ' . $console . ' ' . $cmd, null, null, null,
+        $process = new Process($php.($phpArgs ? ' '.$phpArgs : '').' '.$console.' '.$cmd, null, null, null,
             $timeout);
         $process->run(function ($type, $buffer) use ($event) {
             $event->getIO()->write($buffer, false);
@@ -113,8 +120,8 @@ class ScriptHandler
 
     protected static function getPhpArguments()
     {
-        $ini       = null;
-        $arguments = array();
+        $ini = null;
+        $arguments = [];
 
         $phpFinder = new PhpExecutableFinder();
         if (method_exists($phpFinder, 'findArguments')) {
@@ -123,13 +130,13 @@ class ScriptHandler
 
         if ($env = strval(getenv('COMPOSER_ORIGINAL_INIS'))) {
             $paths = explode(PATH_SEPARATOR, $env);
-            $ini   = array_shift($paths);
+            $ini = array_shift($paths);
         } else {
             $ini = php_ini_loaded_file();
         }
 
         if ($ini) {
-            $arguments[] = '--php-ini=' . $ini;
+            $arguments[] = '--php-ini='.$ini;
         }
 
         return $arguments;

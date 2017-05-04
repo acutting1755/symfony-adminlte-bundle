@@ -3,12 +3,11 @@
 namespace SbS\AdminLTEBundle\Model;
 
 /**
- * Class MenuItemModel
- * @package SbS\AdminLTEBundle\Model
+ * Class MenuItemModel.
  */
 class MenuItemModel implements MenuItemInterface
 {
-    /** @var integer */
+    /** @var int */
     private $id;
 
     /** @var string */
@@ -37,12 +36,13 @@ class MenuItemModel implements MenuItemInterface
 
     public function __construct($label)
     {
-        $this->id    = uniqid();
+        $this->id = uniqid();
         $this->label = $label;
     }
 
     /**
      * @param $id
+     *
      * @return $this
      */
     public function setId($id)
@@ -53,7 +53,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -62,6 +62,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $label
+     *
      * @return $this
      */
     public function setLabel($label)
@@ -101,6 +102,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $routeArgs
+     *
      * @return $this
      */
     public function setRouteArgs($routeArgs)
@@ -120,6 +122,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $children
+     *
      * @return $this
      */
     public function setChildren($children)
@@ -143,6 +146,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param MenuItemInterface $child
+     *
      * @return $this
      */
     public function addChild(MenuItemInterface $child)
@@ -155,6 +159,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param MenuItemInterface|null $parent
+     *
      * @return $this
      */
     public function setParent(MenuItemInterface $parent = null)
@@ -173,7 +178,7 @@ class MenuItemModel implements MenuItemInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getActive()
     {
@@ -182,6 +187,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $active
+     *
      * @return $this
      */
     public function setActive($active)
@@ -196,6 +202,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $icon
+     *
      * @return $this
      */
     public function setIcon($icon)
@@ -215,6 +222,7 @@ class MenuItemModel implements MenuItemInterface
 
     /**
      * @param $badges
+     *
      * @return $this
      */
     public function setBadges($badges)
@@ -235,6 +243,7 @@ class MenuItemModel implements MenuItemInterface
     /**
      * @param string $text
      * @param string $color
+     *
      * @return $this
      */
     public function addBadge($text, $color = MenuItemInterface::COLOR_GREEN)

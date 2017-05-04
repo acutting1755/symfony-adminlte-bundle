@@ -7,8 +7,7 @@ use SbS\AdminLTEBundle\Event\ThemeEvents;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class SideBarExtension
- * @package SbS\AdminLTEBundle\Twig
+ * Class SideBarExtension.
  */
 class SideBarExtension extends AdminLTE_Extension
 {
@@ -29,7 +28,7 @@ class SideBarExtension extends AdminLTE_Extension
     public function SidebarMenuFunction(\Twig_Environment $environment, Request $request)
     {
         if ($this->checkListener(ThemeEvents::SIDEBAR_MENU) == false) {
-            return "";
+            return '';
         }
 
         /** @var SidebarMenuEvent $menuEvent */

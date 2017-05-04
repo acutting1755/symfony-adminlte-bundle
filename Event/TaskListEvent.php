@@ -6,8 +6,7 @@ use SbS\AdminLTEBundle\Model\TaskInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Class TaskListEvent
- * @package SbS\AdminLTEBundle\Event
+ * Class TaskListEvent.
  */
 class TaskListEvent extends Event
 {
@@ -19,6 +18,7 @@ class TaskListEvent extends Event
 
     /**
      * @param TaskInterface $task
+     *
      * @return $this
      */
     public function addTask(TaskInterface $task)
@@ -38,6 +38,7 @@ class TaskListEvent extends Event
 
     /**
      * @param $total
+     *
      * @return $this
      */
     public function setTotal($total)

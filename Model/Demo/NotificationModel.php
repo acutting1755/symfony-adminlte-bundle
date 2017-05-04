@@ -5,12 +5,11 @@ namespace SbS\AdminLTEBundle\Model\Demo;
 use SbS\AdminLTEBundle\Model\NotificationInterface;
 
 /**
- * Class NotificationModel
- * @package SbS\AdminLTEBundle\Model\Demo
+ * Class NotificationModel.
  */
 class NotificationModel implements NotificationInterface
 {
-    /** @var integer */
+    /** @var int */
     private $id;
 
     /** @var string */
@@ -21,19 +20,21 @@ class NotificationModel implements NotificationInterface
 
     /**
      * NotificationModel constructor.
+     *
      * @param $id
      * @param $message
      * @param string $type
      */
     public function __construct($id, $message, $type = self::TYPE_INFO)
     {
-        $this->id      = $id;
+        $this->id = $id;
         $this->message = $message;
         $this->setIcon($type);
     }
 
     /**
      * @param $id
+     *
      * @return $this
      */
     public function setId($id)
@@ -44,7 +45,7 @@ class NotificationModel implements NotificationInterface
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -53,6 +54,7 @@ class NotificationModel implements NotificationInterface
 
     /**
      * @param $message
+     *
      * @return $this
      */
     public function setMessage($message)
@@ -72,6 +74,7 @@ class NotificationModel implements NotificationInterface
 
     /**
      * @param $type
+     *
      * @return $this
      */
     public function setIcon($type)

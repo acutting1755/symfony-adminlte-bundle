@@ -6,8 +6,7 @@ use SbS\AdminLTEBundle\Model\UserInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Class UserEvent
- * @package SbS\AdminLTEBundle\Event
+ * Class UserEvent.
  */
 class UserEvent extends Event
 {
@@ -16,11 +15,13 @@ class UserEvent extends Event
 
     /**
      * @param UserInterface $user
+     *
      * @return $this
      */
     public function setUser($user)
     {
         $this->user = $user;
+
         return $this;
     }
 

@@ -2,14 +2,14 @@
 
 namespace SbS\AdminLTEBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * This is the class that loads and manages your bundle configuration
+ * This is the class that loads and manages your bundle configuration.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
@@ -20,7 +20,7 @@ class SbSAdminLTEExtension extends Extension implements PrependExtensionInterfac
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
 
@@ -36,7 +36,7 @@ class SbSAdminLTEExtension extends Extension implements PrependExtensionInterfac
         if (isset($bundles['TwigBundle'])) {
             $container->prependExtensionConfig(
                 'twig', [
-                    'form_themes' => ['bootstrap_3_layout.html.twig']
+                    'form_themes' => ['bootstrap_3_layout.html.twig'],
                 ]
             );
         }
@@ -44,10 +44,9 @@ class SbSAdminLTEExtension extends Extension implements PrependExtensionInterfac
         if (isset($bundles['AsseticBundle'])) {
             $container->prependExtensionConfig(
                 'assetic', [
-                    'bundles' => ['SbSAdminLTEBundle']
+                    'bundles' => ['SbSAdminLTEBundle'],
                 ]
             );
-
         }
     }
 }
