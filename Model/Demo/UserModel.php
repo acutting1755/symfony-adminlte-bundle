@@ -5,12 +5,11 @@ namespace SbS\AdminLTEBundle\Model\Demo;
 use SbS\AdminLTEBundle\Model\UserInterface;
 
 /**
- * Class UserModel
- * @package SbS\AdminLTEBundle\Model\Demo
+ * Class UserModel.
  */
 class UserModel implements UserInterface
 {
-    /** @var integer */
+    /** @var int */
     private $id;
 
     /** @var string */
@@ -31,23 +30,25 @@ class UserModel implements UserInterface
     /** @var string */
     private $info;
 
-
     /**
      * UserModel constructor.
+     *
      * @param $username
      */
-    function __construct($username)
+    public function __construct($username)
     {
         $this->username = $username;
     }
 
     /**
      * @param $id
+     *
      * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -61,11 +62,13 @@ class UserModel implements UserInterface
 
     /**
      * @param $username
+     *
      * @return $this
      */
     public function setUsername($username)
     {
         $this->username = $username;
+
         return $this;
     }
 
@@ -79,11 +82,13 @@ class UserModel implements UserInterface
 
     /**
      * @param $name
+     *
      * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -97,11 +102,13 @@ class UserModel implements UserInterface
 
     /**
      * @param $avatar
+     *
      * @return $this
      */
     public function setAvatar($avatar)
     {
         $this->avatar = $avatar;
+
         return $this;
     }
 
@@ -115,11 +122,13 @@ class UserModel implements UserInterface
 
     /**
      * @param \DateTime $memberSince
+     *
      * @return $this
      */
     public function setMemberSince(\DateTime $memberSince)
     {
         $this->memberSince = $memberSince;
+
         return $this;
     }
 
@@ -133,11 +142,13 @@ class UserModel implements UserInterface
 
     /**
      * @param $title
+     *
      * @return $this
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -151,11 +162,13 @@ class UserModel implements UserInterface
 
     /**
      * @param $info
+     *
      * @return $this
      */
     public function setInfo($info)
     {
         $this->info = $info;
+
         return $this;
     }
 

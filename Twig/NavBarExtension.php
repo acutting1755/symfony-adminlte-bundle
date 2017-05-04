@@ -8,8 +8,7 @@ use SbS\AdminLTEBundle\Event\ThemeEvents;
 use SbS\AdminLTEBundle\Event\UserEvent;
 
 /**
- * Class NavBarExtension
- * @package SbS\AdminLTEBundle\Twig
+ * Class NavBarExtension.
  */
 class NavBarExtension extends AdminLTE_Extension
 {
@@ -38,18 +37,19 @@ class NavBarExtension extends AdminLTE_Extension
                 'user_avatar',
                 [$this, 'AvatarFunction'],
                 ['is_safe' => ['html'], 'needs_environment' => true]
-            )
+            ),
         ];
     }
 
     /**
      * @param \Twig_Environment $environment
+     *
      * @return string
      */
     public function NotificationsFunction(\Twig_Environment $environment)
     {
         if ($this->checkListener(ThemeEvents::NOTICES) == false) {
-            return "";
+            return '';
         }
 
         /** @var NotificationListEvent $noticesEvent */
@@ -63,12 +63,13 @@ class NavBarExtension extends AdminLTE_Extension
 
     /**
      * @param \Twig_Environment $environment
+     *
      * @return string
      */
     public function TasksFunction(\Twig_Environment $environment)
     {
         if ($this->checkListener(ThemeEvents::TASKS) == false) {
-            return "";
+            return '';
         }
 
         /** @var TaskListEvent $tasksEvent */
@@ -78,17 +79,17 @@ class NavBarExtension extends AdminLTE_Extension
             'tasks' => $tasksEvent->getTasks(),
             'total' => $tasksEvent->getTotal(),
         ]);
-
     }
 
     /**
      * @param \Twig_Environment $environment
+     *
      * @return string
      */
     public function UserAccountFunction(\Twig_Environment $environment)
     {
         if ($this->checkListener(ThemeEvents::USER) == false) {
-            return "";
+            return '';
         }
 
         /** @var UserEvent $userEvent */
@@ -98,11 +99,13 @@ class NavBarExtension extends AdminLTE_Extension
     }
 
     /**
-     * Show User Avatar
+     * Show User Avatar.
+     *
      * @param \Twig_Environment $environment
      * @param $image
      * @param string $alt
      * @param string $class
+     *
      * @return string
      */
     public function AvatarFunction(\Twig_Environment $environment, $image, $alt = '', $class = 'img-circle')

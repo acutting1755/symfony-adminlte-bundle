@@ -6,8 +6,7 @@ use SbS\AdminLTEBundle\Model\NotificationInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Class NotificationListEvent
- * @package SbS\AdminLTEBundle\Event
+ * Class NotificationListEvent.
  */
 class NotificationListEvent extends Event
 {
@@ -19,6 +18,7 @@ class NotificationListEvent extends Event
 
     /**
      * @param NotificationInterface $notificationInterface
+     *
      * @return $this
      */
     public function addNotification(NotificationInterface $notificationInterface)

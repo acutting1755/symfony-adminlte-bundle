@@ -5,12 +5,11 @@ namespace SbS\AdminLTEBundle\Model\Demo;
 use SbS\AdminLTEBundle\Model\TaskInterface;
 
 /**
- * Class TaskModel
- * @package SbS\AdminLTEBundle\Model\Demo
+ * Class TaskModel.
  */
 class TaskModel implements TaskInterface
 {
-    /** @var integer */
+    /** @var int */
     private $id;
 
     /** @var string */
@@ -24,21 +23,23 @@ class TaskModel implements TaskInterface
 
     /**
      * TaskModel constructor.
+     *
      * @param $id
      * @param $title
-     * @param int $progress
+     * @param int    $progress
      * @param string $color
      */
-    function __construct($id, $title, $progress = 0, $color = self::COLOR_RED)
+    public function __construct($id, $title, $progress = 0, $color = self::COLOR_RED)
     {
-        $this->id       = $id;
-        $this->title    = $title;
+        $this->id = $id;
+        $this->title = $title;
         $this->progress = $progress;
-        $this->color    = $color;
+        $this->color = $color;
     }
 
     /**
      * @param $id
+     *
      * @return $this
      */
     public function setId($id)
@@ -58,6 +59,7 @@ class TaskModel implements TaskInterface
 
     /**
      * @param $title
+     *
      * @return $this
      */
     public function setTitle($title)
@@ -77,6 +79,7 @@ class TaskModel implements TaskInterface
 
     /**
      * @param $progress
+     *
      * @return $this
      */
     public function setProgress($progress)
@@ -96,6 +99,7 @@ class TaskModel implements TaskInterface
 
     /**
      * @param $color
+     *
      * @return $this
      */
     public function setColor($color)

@@ -3,12 +3,11 @@
 namespace SbS\AdminLTEBundle\Event;
 
 use SbS\AdminLTEBundle\Model\MenuItemInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class SidebarMenuEvent
- * @package SbS\AdminLTEBundle\Event
+ * Class SidebarMenuEvent.
  */
 class SidebarMenuEvent extends Event
 {
@@ -24,6 +23,7 @@ class SidebarMenuEvent extends Event
 
     /**
      * SidebarMenuEvent constructor.
+     *
      * @param $request
      */
     public function __construct($request)
@@ -50,6 +50,7 @@ class SidebarMenuEvent extends Event
     /**
      * @param $route
      * @param $items
+     *
      * @return mixed
      */
     protected function activateByRoute($route, $items)

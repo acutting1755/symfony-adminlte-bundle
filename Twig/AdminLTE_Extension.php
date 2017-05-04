@@ -5,18 +5,18 @@ namespace SbS\AdminLTEBundle\Twig;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class AdminLTE_Extension
- * @package SbS\AdminLTEBundle\Twig
+ * Class AdminLTE_Extension.
  */
 abstract class AdminLTE_Extension extends \Twig_Extension
 {
     /**
-     * @var $dispatcher EventDispatcherInterface
+     * @var EventDispatcherInterface
      */
     private $dispatcher;
 
     /**
      * AdminLTE_Extension constructor.
+     *
      * @param EventDispatcherInterface $dispatcher
      */
     public function __construct(EventDispatcherInterface $dispatcher)
@@ -34,6 +34,7 @@ abstract class AdminLTE_Extension extends \Twig_Extension
 
     /**
      * @param $listener
+     *
      * @return bool
      */
     protected function checkListener($listener)
